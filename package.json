@@ -1,0 +1,20 @@
+{
+  "name": "postgresql-prisma",
+  "version": "1.0.0",
+  "description": "The purpose of this article is to showcase how a prisma project can be setup with production and development databases, and the order of migration or changes to the schema would be done.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "cross-env DATABASE_URL=postgresql://postgres:ADeVMo$t3at@localhost:9001/dev prisma migrate dev",
+    "deploy": "cross-env DATABASE_URL=postgresql://postgres:MyHidd3nPa$$@localhost:9000/prod prisma migrate deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prisma": "^5.12.1"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
