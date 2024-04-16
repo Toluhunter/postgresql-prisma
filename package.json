@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "cross-env DATABASE_URL=postgresql://postgres:ADeVMo$t3at@localhost:9001/dev prisma migrate dev",
-    "deploy": "cross-env DATABASE_URL=postgresql://postgres:MyHidd3nPa$$@localhost:9000/prod prisma migrate deploy"
+    "migrate": "dotenv cross-var cross-env DATABASE_URL=%DEV_DATABASE_URL% prisma migrate dev",
+    "deploy": "dotenv cross-var cross-env DATABASE_URL=%PROD_DATABASE_URL% prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,11 @@
     "prisma": "^5.12.1"
   },
   "dependencies": {
-    "cross-env": "^7.0.3"
+    "@prisma/client": "^5.12.1",
+    "cross-env": "^7.0.3",
+    "cross-var": "^1.1.0",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.1",
+    "express": "^4.19.2"
   }
 }
