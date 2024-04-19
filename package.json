@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "dotenv cross-var cross-env DATABASE_URL=%DEV_DATABASE_URL% prisma migrate dev",
-    "deploy": "dotenv cross-var cross-env DATABASE_URL=%PROD_DATABASE_URL% prisma migrate deploy"
+    "migrate": "cross-env DATABASE_URL=$(dotenv -p DEV_DATABASE_URL) prisma migrate dev",
+    "deploy": "cross-env DATABASE_URL=$(dotenv -p PROD_DATABASE_URL) prisma migrate deploy"
   },
   "keywords": [],
   "author": "",

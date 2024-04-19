@@ -111,8 +111,8 @@ Now, let's modify our `package.json` scripts to have the following commands: `mi
 ```json
 "scripts": {
    "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "dotenv cross-var cross-env DATABASE_URL=%DEV_DATABASE_URL% prisma migrate dev",
-    "deploy": "dotenv cross-var cross-env DATABASE_URL=%PROD_DATABASE_URL% prisma migrate deploy"
+    "migrate": "cross-env DATABASE_URL=$(dotenv -p DEV_DATABASE_URL) prisma migrate dev",
+    "deploy": "cross-env DATABASE_URL=$(dotenv -p PROD_DATABASE_URL) prisma migrate deploy"
   }
 ```
 
@@ -224,6 +224,6 @@ If you would want a bit more CRUD functionality for the application, visit my Gi
 
 ## Conclusion
 
-So far, we have set up our development and production databases with Docker, we set up our migration and deployment to dynamically use the appropriate Database URL with `dotenv-cli`, `cross-var`, and `cross-env`.
+So far, we have set up our development and production databases with Docker, we set up our migration and deployment to dynamically use the appropriate Database URL with `dotenv-cli`, and `cross-env`.
 
 Finally, we created a small Express application to test our database integration.
